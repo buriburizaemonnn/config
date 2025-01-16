@@ -20,7 +20,7 @@ return {
 			})
 
 			mason_lspconfig.setup({
-				ensure_installed = { "html", "cssls", "lua_ls" },
+				ensure_installed = { "html", "cssls", "lua_ls", "tsserver" },
 			})
 		end,
 	},
@@ -107,6 +107,18 @@ return {
 			lspconfig.elixirls.setup({
 				cmd = { "/Users/pramitgaha/.config/elixir-ls/language_server.sh" },
 				capabilities = capabilities,
+			})
+
+			lspconfig.dockerls.setup({
+				settings = {
+					docker = {
+						languageserver = {
+							formatter = {
+								ignoreMultilineInstructions = true,
+							},
+						},
+					},
+				},
 			})
 		end,
 	},
